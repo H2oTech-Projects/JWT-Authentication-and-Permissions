@@ -77,13 +77,24 @@ class AdminOnlyView(APIView):
     
 
 class ExampleView(APIView):
-    permission_classes = [IsAuthenticated , ReadOnly]
-
+    permission_classes =  [IsAuthenticatedOrReadOnly]
     def get(self, request, format=None):
         content = {
             'status': 'request was permitted'
         }
         return Response(content)
     
-    #def get_address():
+'''    def get_address(self, request, format=None):
+        address_content = {
+            'address': '123 Example Street, Sample City'
+        }
+        return Response(address_content)'''
         
+class AddressView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        address_content = {
+            'address': '123 Example Street, Sample City'
+        }
+        return Response(address_content)

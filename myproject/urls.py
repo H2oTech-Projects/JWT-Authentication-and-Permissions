@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from myapp.views import RegisterSerializer,RegisterView,LoginView,LogoutView, DashboardView,SpecialView,AdminOnlyView,ExampleView
+from myapp.views import RegisterSerializer,RegisterView,LoginView,LogoutView, DashboardView,SpecialView,AdminOnlyView,ExampleView, AddressView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -17,5 +17,6 @@ urlpatterns = [
     path('api/special/', SpecialView.as_view(), name='special-view'),
     path('api/adminonly/', AdminOnlyView.as_view(), name='adminonly-view'),
     path('example/', ExampleView.as_view(), name='example_view'),
+
 
 ]
